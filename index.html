@@ -1,0 +1,171 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Time</title>
+
+    <link rel="stylesheet" href="./src/styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.cdnfonts.com/css/sf-pro-display"
+    />
+
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+  </head>
+
+  <body>
+    <nav>
+      <ul class="tabs">
+        <li>
+          <a href="#clock" class="tab active" aria-current="page">
+            <i class="fa-regular fa-clock"></i>
+            Clock
+          </a>
+        </li>
+
+        <li>
+          <a href="#alarm" class="tab">
+            <i class="fa-solid fa-bell"></i>
+            Alarm
+          </a>
+        </li>
+
+        <li>
+          <a href="#stopwatch" class="tab">
+            <i class="fa-solid fa-stopwatch"></i>
+            Stopwatch
+          </a>
+        </li>
+
+        <li>
+          <a href="#timer" class="tab">
+            <i class="fa-solid fa-hourglass-half"></i>
+            Timer
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Reloj -->
+      <section id="clock">
+        <x-clock>
+          <time>00:00:00</time>
+        </x-clock>
+      </section>
+
+      <!-- Alarma -->
+      <section id="alarm">
+        <x-alarm>
+          <audio class="alarm-sound" src="./assets/alarm.mp3" loop></audio>
+          <template>
+            <section class="alarms">
+              <input type="time" min="00:00" max="23:59" step="1" />
+
+              <section class="controls">
+                <button class="start">
+                  <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <button class="pause">
+                  <i class="fa-solid fa-bell-slash"></i>
+                </button>
+
+                <button class="delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </section>
+            </section>
+          </template>
+
+          <section class="items"></section>
+
+          <section class="controls">
+            <button class="add">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </section>
+        </x-alarm>
+      </section>
+
+      <!-- Cronómetro -->
+      <section id="stopwatch">
+        <x-stopwatch>
+          <time datetime="PT0S">00:00:00.00</time>
+
+          <section class="controls">
+            <button class="start">
+              <i class="fa-solid fa-play"></i>
+            </button>
+
+            <button class="pause">
+              <i class="fa-solid fa-pause"></i>
+            </button>
+
+            <button class="restart">
+              <i class="fa-solid fa-rotate-left"></i>
+            </button>
+          </section>
+        </x-stopwatch>
+      </section>
+
+      <!-- Temporizador -->
+      <section id="timer">
+        <x-timer>
+          <time datetime="PT0S">00:00:00.00</time>
+
+          <section class="items">
+            <section class="timers">
+              <input
+                type="time"
+                min="00:00:00"
+                max="23:59:59"
+                value="00:03:00"
+              />
+
+              <input
+                type="time"
+                min="00:00:00"
+                max="23:59:59"
+                value="00:01:00"
+              />
+            </section>
+          </section>
+
+          <section class="controls">
+            <button class="start">
+              <i class="fa-solid fa-play"></i>
+            </button>
+
+            <button class="pause">
+              <i class="fa-solid fa-pause"></i>
+            </button>
+
+            <button class="restart">
+              <i class="fa-solid fa-rotate-left"></i>
+            </button>
+
+            <button class="loop">
+              <i class="fa-solid fa-repeat"></i>
+            </button>
+
+            <button class="no-loop">
+              <i class="fa-solid fa-arrow-rotate-right"></i>
+            </button>
+          </section>
+        </x-timer>
+      </section>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint .",
+    "format": "prettier . --check",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.12"
+  },
+  "private": true,
+  "type": "module"
+}

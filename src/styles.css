@@ -1,0 +1,440 @@
+
+/* Colores claros */
+:root {
+  --accent: #00b8d9;
+  --danger: #ff5c7a;
+  --bg-light: #eaf8ff;
+  --bg-dark: #ffffff;
+  --text-light: #243b53;
+  --tab-inactive: #8ba9bd;
+  --success: #20c997;
+  --text-dark: #ffffff;
+}
+
+/* Colores oscuros */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #7afcff;
+    --danger: #ffb300;
+    --bg-light: #2a3140;
+    --bg-dark: #232946;
+    --text-light: #f4faff;
+    --tab-inactive: #8da2c9;
+    --success: #3ec9a7;
+    --text-dark: #f4faff;
+  }
+}
+
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #eaf8ff, #d6f3ff);
+  color: var(--text-light);
+  font-family: "SF Pro Display", sans-serif;
+  min-height: 100vh;
+}
+
+/* Iconos */
+button i {
+  font-size: 18px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+/* Barra de navegación */
+nav {
+  margin-top: 0;
+  padding-top: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: sticky;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 184, 217, 0.12);
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 24px;
+}
+
+/* Pestañas */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #d6eaf2;
+}
+
+.tab {
+  display: block;
+  padding: 16px 28px;
+  color: var(--tab-inactive);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  border: none;
+  background: none;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active,
+.tab[aria-current="page"] {
+  color: #00a8cc;
+  border-bottom: 2px solid #00c8e8;
+  font-weight: 700;
+}
+
+/* Panel principal */
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 150, 200, 0.12);
+  border: 1px solid rgba(0, 184, 217, 0.12);
+  padding: 24px;
+}
+
+/* Secciones */
+section {
+  margin-bottom: 32px;
+}
+
+/* Tarjetas */
+x-clock,
+x-stopwatch,
+x-timer,
+x-alarm {
+  display: block;
+  padding: 25px 15px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #effaff);
+  border: 1px solid #d6f1fa;
+  box-shadow: 0 8px 22px rgba(0, 150, 200, 0.10);
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+x-clock:hover,
+x-stopwatch:hover,
+x-timer:hover,
+x-alarm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 150, 200, 0.16);
+}
+
+/* Reloj */
+x-clock {
+  padding: 45px 15px;
+}
+
+x-clock time {
+  display: block;
+  font-size: clamp(42px, 10vw, 65px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #00a8cc;
+  text-align: center;
+  text-shadow: 0 3px 12px rgba(0, 184, 217, 0.18);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cronómetro y temporizador */
+x-stopwatch time,
+x-timer time {
+  display: block;
+  margin: 10px 0 25px;
+  font-size: clamp(35px, 8vw, 55px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #00a8cc;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 3px 12px rgba(0, 184, 217, 0.15);
+}
+
+/* Intervalos */
+x-timer .items {
+  width: 100%;
+  margin: 20px auto;
+}
+
+x-timer .timers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+x-timer .timers input {
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+}
+
+/* Intervalo activo */
+x-timer input.current-interval {
+  border-color: var(--success);
+  background: #e6fff7;
+  box-shadow: 0 0 12px rgba(32, 201, 151, 0.2);
+}
+
+/* Controles */
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Botones */
+button {
+  background: linear-gradient(135deg, #00c8e8, #00a8cc);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 17px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 184, 217, 0.2);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 184, 217, 0.3);
+}
+
+button.delete {
+  background: linear-gradient(135deg, #ff758f, #ff4565);
+}
+
+button.pause {
+  background: linear-gradient(135deg, #ffb347, #ff963c);
+}
+
+button.restart {
+  background: linear-gradient(135deg, #8ba9bd, #66869d);
+}
+
+button.loop,
+button.no-loop {
+  background: linear-gradient(135deg, #8c7cf6, #6c63d9);
+}
+
+button.add {
+  background: linear-gradient(135deg, #20c997, #13a982);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Campos de hora */
+input[type="time"] {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 2px solid #a5eaff;
+  background: #f0fbff;
+  color: #1686a5;
+  margin-right: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="time"]:hover {
+  border-color: #00c8e8;
+  box-shadow: 0 0 12px rgba(0, 200, 232, 0.2);
+}
+
+input[type="time"]:focus {
+  box-shadow: 0 0 12px rgba(0, 200, 232, 0.3);
+  border-color: #00b8d9;
+}
+
+/* Alarmas */
+x-alarm .items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+x-alarm .alarms {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background: #f0fbff;
+  border: 1px solid #d6f1fa;
+}
+
+x-alarm .alarms .controls {
+  margin-top: 0;
+}
+
+/* Alarma activada */
+x-alarm .alarms[ringing] {
+  border: 2px solid var(--danger);
+  animation: alarma 1s infinite alternate;
+}
+
+/* Animación de la alarma */
+@keyframes alarma {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.03);
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+  }
+
+  nav,
+  main {
+    background: rgba(42, 49, 64, 0.92);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
+    border-color: transparent;
+  }
+
+  .tabs {
+    border-bottom: 1px solid #3e4a62;
+  }
+
+  .tab {
+    color: var(--tab-inactive);
+  }
+
+  .tab.active,
+  .tab[aria-current="page"] {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  x-clock,
+  x-stopwatch,
+  x-timer,
+  x-alarm {
+    background: linear-gradient(145deg, #30394d, #252d40);
+    border-color: #3e4a62;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  }
+
+  x-clock time,
+  x-stopwatch time,
+  x-timer time {
+    color: var(--accent);
+    text-shadow: 0 3px 15px rgba(122, 252, 255, 0.15);
+  }
+
+  button {
+    background: var(--accent);
+    color: #232946;
+  }
+
+  button.delete {
+    background: var(--danger);
+    color: #232946;
+  }
+
+  button.pause {
+    background: #ffb347;
+    color: #232946;
+  }
+
+  button.restart {
+    background: #8da2c9;
+    color: #232946;
+  }
+
+  button.loop,
+  button.no-loop {
+    background: #a394ff;
+    color: #232946;
+  }
+
+  button.add {
+    background: var(--success);
+    color: #232946;
+  }
+
+  input[type="time"] {
+    background: #31394d;
+    color: var(--text-light);
+    border: 1px solid #3e4a62;
+  }
+
+  input[type="time"]:hover,
+  input[type="time"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(122, 252, 255, 0.2);
+  }
+
+  x-timer input.current-interval {
+    background: #174b45;
+    border-color: var(--success);
+  }
+
+  x-alarm .alarms {
+    background: #31394d;
+    border-color: #3e4a62;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+
+  main {
+    padding: 12px;
+    border-radius: 10px;
+    margin: 0 12px;
+  }
+
+  .tab {
+    padding: 12px 8px;
+    font-size: 15px;
+  }
+
+  x-clock,
+  x-stopwatch,
+  x-timer,
+  x-alarm {
+    padding: 25px 12px;
+  }
+
+  x-alarm .alarms {
+    justify-content: center;
+  }
+}
